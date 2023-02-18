@@ -38,22 +38,18 @@
                     <h1 class="text-5xl font-extrabold tracking-wider text-center text-gray-600">
                         {{ config('app.name') }}
                     </h1>
-
-                    <ul class="list-reset">
-                        <li class="inline px-4">
-                            <a href="https://tailwindcss.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Tailwind CSS</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://github.com/alpinejs/alpine" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Alpine.js</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://laravel.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Laravel</a>
-                        </li>
-                        <li class="inline px-4">
-                            <a href="https://laravel-livewire.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Livewire</a>
-                        </li>
-                    </ul>
                 </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-6">
+          <div class="w-full max-w-screen-lg flex flex-col md:flex-row px-4">
+              <div class="w-full md:w-2/3 mb-4 md:mb-0 md:mr-2">
+                @livewire('list-snack')
+              </div>
+              <div class="w-full md:w-1/3 flex flex-col">
+                @livewire('coin-slot')
+              </div>
             </div>
         </div>
     </div>

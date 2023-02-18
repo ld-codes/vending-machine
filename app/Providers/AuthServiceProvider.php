@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,10 +22,20 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Gate $gate)
     {
         $this->registerPolicies();
 
-        //
+        $gate->define('deposit', function ($user) {
+          return $user->balance == 0;
+        });
+
+        $gate->define('withdraw', function ($user) {
+          return $user->balance > 0;
+        });
+
+        $gate->define('purchase', function ($user, $snack) {
+          return $user->balance >= $snack->price;
+        });
     }
 }
